@@ -1,0 +1,14 @@
+{
+    "trailingComma": "none",
+    "printWidth": 160,
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true,
+    "quoteProps": "preserve",
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid",
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"]
+}

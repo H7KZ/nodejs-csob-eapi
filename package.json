@@ -1,0 +1,49 @@
+{
+    "name": "@h7kz/nodejs-csob-eapi",
+    "version": "0.0.1",
+    "description": "NodeJS CSOB eAPI",
+    "keywords": ["nodejs", "csob", "eapi"],
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "author": "Jan Komínek",
+    "license": "MIT",
+    "scripts": {
+        "upd": "pnpm update && pnpm upgrade && pnpm install",
+        "upd:f": "pnpm update --force && pnpm upgrade --force && pnpm install --force",
+        "build": "tsc",
+        "start": "node build/index.js",
+        "dev": "nodemon --exec ts-node --esm src/index.ts",
+        "format": "prettier --end-of-line lf --plugin-search-dir . --write .",
+        "lint": "prettier --end-of-line lf --plugin-search-dir . --check . && eslint . --fix",
+        "precommit": "prettier --end-of-line lf --plugin-search-dir . --write . && prettier --end-of-line lf --plugin-search-dir . --check . && eslint . --fix"
+    },
+    "dependencies": {
+        "axios": "^1.7.2"
+    },
+    "devDependencies": {
+        "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+        "@types/node": "^18.19.33",
+        "@typescript-eslint/eslint-plugin": "^5.62.0",
+        "@typescript-eslint/parser": "^5.62.0",
+        "eslint": "^8.57.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-node": "^4.1.0",
+        "eslint-config-prettier": "^8.10.0",
+        "eslint-config-standard-with-typescript": "^34.0.1",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-n": "^15.7.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-promise": "^6.2.0",
+        "prettier": "^2.8.8",
+        "typescript": "^5.4.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/H7KZ/nodejs-csob-eapi.git"
+    },
+    "bugs": {
+        "url": "https://github.com/H7KZ/nodejs-csob-eapi/issues"
+    },
+    "homepage": "https://github.com/H7KZ/nodejs-csob-eapi"
+}
