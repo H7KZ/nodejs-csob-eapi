@@ -1,5 +1,5 @@
 import crypto, { type BinaryToTextEncoding } from 'crypto';
-import type { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import postApplePayEcho from './methods/applepay/post-apple-pay-echo';
 import postApplePayInit from './methods/applepay/post-apple-pay-init';
 import postApplePayProcess from './methods/applepay/post-apple-pay-process';
@@ -76,6 +76,26 @@ export class CSOB {
         this.publicKey = config.publicKey;
         this.algorithm = config.algorithm ?? this.algorithm;
         this.encoding = config.encoding ?? this.encoding;
+
+        if (!this.gateUrl || !this.merchantId || !this.privateKey || !this.publicKey)
+            throw new Error('Missing required parameters');
+
+        if (!this.algorithm || !this.encoding)
+            throw new Error('Invalid algorithm or encoding');
+
+        if (!this.privateKey.startsWith('-----BEGIN PRIVATE KEY-----') || !this.privateKey.endsWith('-----END PRIVATE KEY-----'))
+            throw new Error('Invalid Private Key');
+
+        if (!this.publicKey.startsWith('-----BEGIN PUBLIC KEY-----') || !this.publicKey.endsWith('-----END PUBLIC KEY-----'))
+            throw new Error('Invalid Public Key');
+
+        this.getCSOBPaymentEcho().then((response) => {
+            if (response instanceof AxiosError) {
+                console.error('CSOB Payment Gateway is not reachable');
+                console.error(response);
+                throw new Error(response.message);
+            }
+        });
     }
 
     /**
