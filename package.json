@@ -1,6 +1,6 @@
 {
-    "name": "@h7kz/nodejs-csob-eapi",
-    "version": "0.0.1",
+    "name": "nodejs-csob-eapi",
+    "version": "0.0.2",
     "description": "NodeJS CSOB eAPI",
     "keywords": ["nodejs", "csob", "eapi"],
     "main": "build/index.js",
